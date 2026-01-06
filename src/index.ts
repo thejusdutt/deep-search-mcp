@@ -453,9 +453,15 @@ server.tool(
 
 // Start the server
 async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  // Note: Don't log to stderr - it can interfere with MCP stdio protocol
+  try {
+    const transport = new StdioServerTransport();
+    await server.connect(transport);
+  } catch (error) {
+    // Write error to a file for debugging since we can't use stderr
+    const fs = await import("fs");
+    fs.writeFileSync("/tmp/deep-search-mcp-error.log", String(error));
+    process.exit(1);
+  }
 }
 
-main().catch(() => process.exit(1));
+main();
