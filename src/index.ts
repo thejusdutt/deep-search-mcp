@@ -455,7 +455,7 @@ server.tool(
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("Deep Search MCP server v2.0.0 running on stdio");
+  // Note: Don't log to stderr - it can interfere with MCP stdio protocol
 }
 
-main().catch(console.error);
+main().catch(() => process.exit(1));
