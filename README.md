@@ -32,7 +32,7 @@ No installation needed - just configure your MCP client:
   "mcpServers": {
     "deep-search": {
       "command": "npx",
-      "args": ["-y", "deep-search-mcp"],
+      "args": ["-y", "@thejusdutt/deep-search-mcp"],
       "env": {
         "SERPER_API_KEY": "your-serper-api-key-here"
       }
@@ -44,7 +44,7 @@ No installation needed - just configure your MCP client:
 ### Global Installation
 
 ```bash
-npm install -g deep-search-mcp
+npm install -g @thejusdutt/deep-search-mcp
 ```
 
 Then configure:
