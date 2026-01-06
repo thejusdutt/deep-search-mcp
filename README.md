@@ -88,6 +88,9 @@ deep_search({ query: "React best practices 2025" })
 // News search
 deep_search({ query: "AI announcements", search_type: "news" })
 
+// Image search - returns image URLs and source pages
+deep_search({ query: "cute cats", search_type: "images" })
+
 // Search specific sites only
 deep_search({ 
   query: "TypeScript tips",
@@ -158,10 +161,26 @@ Add to your Continue config:
 }
 ```
 
+## Search Types
+
+### Web Search (default)
+Standard Google search with full page content extraction using Mozilla Readability.
+
+### News Search
+Searches Google News for recent articles. Use `search_type: "news"` or the dedicated `deep_search_news` tool.
+
+### Image Search
+Searches Google Images and returns:
+- **title** - Image title/description
+- **link** - Source page URL where the image is hosted
+- **snippet** - Direct image URL
+
+Note: Image search returns metadata and URLs only - it does not download or display actual images.
+
 ## How It Works
 
 1. **Search** - Queries Google via Serper API to get top results
-2. **Fetch** - Downloads each result page with retry logic
+2. **Fetch** - Downloads each result page with retry logic (web/news only)
 3. **Extract** - Uses Mozilla Readability to extract clean article content
 4. **Format** - Returns consolidated markdown with full content from each page
 

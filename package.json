@@ -1,6 +1,6 @@
 {
   "name": "@thejusdutt/deep-search-mcp",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "MCP server for comprehensive web search - combines Google search with full page content extraction using Mozilla Readability algorithm. Supports web, news, and image search with domain filtering and retry logic.",
   "type": "module",
   "main": "dist/index.js",
